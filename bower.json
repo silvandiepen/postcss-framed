@@ -1,0 +1,25 @@
+{
+  "name": "Framed",
+  "version": "0.1.0",
+  "homepage": "https://github.com/silvandiepen/framed",
+  "authors": [
+    "silvandiepen <me@silvandiepen.com>"
+  ],
+  "description": "Responsive grid",
+  "main": "scss/style.scss",
+  "keywords": [
+    "responsive",
+    "grid",
+    "frame",
+    "sass",
+    "scss"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
