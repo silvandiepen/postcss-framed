@@ -1,5 +1,6 @@
 @import "color_default";
 
+$transition: .3s !default;
 $border-radius-size: 3 !default;
 $border-radius: #{$border-radius-size}px !default;
 
@@ -47,7 +48,6 @@ $grid-columns: 12 !default;
 $grid-spacing: 0 !default;
 $half-grid-spacing: $grid-spacing / 2 !default;
 
-$auto-styling: true !default;
 $auto-imagesize: true !default;
 $grid-dev: false !default;
 $grid-forms: true !default;
@@ -89,9 +89,8 @@ $xxlarge-up: "screen and (min-width:#{first($grid-xxlarge)}px)" !default;
 $xxlarge-down: "screen and (max-width: #{last($grid-xxlarge)}px)" !default;
 
 
-// form settings
+// modal settings
 
-$popup-border: 0px !default;
-
-$popup-title-background: rgba(black,0.5);
-$popup-title-color: $white;
+$modal-border: 0px !default;
+$modal-title-background: rgba(black,0.5);
+$modal-title-color: $white;

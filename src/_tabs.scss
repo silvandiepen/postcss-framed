@@ -1,0 +1,17 @@
+	// TABS
+	.tabs {
+		&> ul, &> ul li { margin:0; padding:0; }
+		.tab-style { display:inline-block; margin:0; padding:1rem; font-size:1rem; margin-right:0px; background:white; color:black; cursor:pointer; transition: $transition; 
+				&.selected { }
+				&:hover { }
+		}
+		&> ul {font-size:0; 
+			&>li{ @extend .tab-style; } 
+		}
+		&> span { font-size:0; display:inline-block;
+			dt{ @extend .tab-style; } 
+		}
+		&> div, &>dd { margin:0; padding:0; display:none; transition: $transition; 
+			&.selected { display:block; transition: $transition; }
+		}
+	}

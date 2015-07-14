@@ -1,0 +1,125 @@
+@import "settings";
+@import "mixins";
+
+// GRIDIT
+
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{ display:block }
+audio,canvas,video{ display:inline-block }
+audio:not([controls]){ display:none; height:0 }
+[hidden],template{ display:none }
+html{ font-family:sans-serif; -ms-text-size-adjust:100%; -webkit-text-size-adjust:100% }
+body{ margin:0 }
+a{ background:transparent }
+a:focus{ outline:none; }
+a:active,a:hover{ outline:0 }
+h1{ font-size:2em; margin:0.67em 0 }
+abbr[title]{ border-bottom:1px dotted }
+b,strong{ font-weight:bold }
+dfn{ font-style:italic }
+hr{ -moz-box-sizing:content-box; box-sizing:content-box; height:0 }
+mark{ background:#ff0; color:#000 }
+code,kbd,pre,samp{ font-family:monospace, serif; font-size:1em }
+pre{ white-space:pre-wrap }
+q{ quotes:"\201C" "\201D" "\2018" "\2019" }
+small{ font-size:80% }
+sub,sup{ font-size:75%; line-height:0; position:relative; vertical-align:baseline }
+sup{ top:-0.5em }
+sub{ bottom:-0.25em }
+img{ border:0 }
+svg:not(:root){ overflow:hidden }
+figure{ margin:0 }
+fieldset{ border:1px solid #c0c0c0; margin:0 2px; padding:0.35em 0.625em 0.75em }
+legend{ border:0; padding:0 }
+ul,li{ margin:0; padding:0; list-style-type:none; }
+button,input,select,textarea{ font-family:inherit; font-size:100%; margin:0; box-sizing: border-box;  }
+button,input{ line-height:normal }
+button,select{ text-transform:none }
+button,html input[type="button"],input[type="reset"],input[type="submit"]{ -webkit-appearance:button; cursor:pointer }
+button[disabled],html input[disabled]{ cursor:default }
+input[type="checkbox"],input[type="radio"]{ padding:0 }
+input[type="search"]{ -webkit-appearance:textfield; box-sizing: border-box; }
+input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{ -webkit-appearance:none }
+button::-moz-focus-inner,input::-moz-focus-inner{ border:0; padding:0 }
+textarea{ overflow:auto; vertical-align:top }
+table{ border-collapse:collapse; border-spacing:0 }
+*{ box-sizing: border-box; outline:none; vertical-align:top }
+.center{ max-width:80em; margin:0 auto; position:relative }
+
+.clearfix,.clear{ height:0; clear:both; display:block; overflow:hidden; visibility:hidden; width:0; height:0 }
+
+.row{ font-size:0; margin:auto; margin-bottom:#{$grid-spacing}px; text-align:center; max-width:#{$grid-max-width};
+	@if($grid-max-width > 0) { max-width:#{$grid-max-width}px; }
+	>div{ font-size:1rem; padding:0; display:inline-block; position:relative; text-align:left; 
+		&.text-center{ text-align:center; }
+		&.text-left{ text-align:left; }
+		&.text-right{ text-align:right; }
+	}
+	&.left{ text-align:left; div{ text-align:left; } }
+	&.right{ text-align:right; div{ text-align:left; } }
+	&.center{ text-align:center; div{ text-align:left; } }
+	&.text-center{ div { text-align:center; }}
+	&.text-left{ div { text-align:left; }}
+	&.text-right{ div { text-align:right; }}
+
+
+// FLEX
+	
+	&.flex { @include flexbox; @include align-content(flex-start);
+	@include flex-flow(row wrap);
+	}
+	&.align-left { @include justify-content(flex-start); }	
+	&.align-right { @include justify-content(flex-end);}	
+	&.align-center { @include justify-content(flex-center);}
+	&.align-justify { @include justify-content(space-between);}	
+
+}
+
+
+
+
+.no-mobile{ display:block !important; &.disable { display:none !important; } }
+.no-desktop{ display:none !important; }
+.mobile-only{ display:none !important; } 
+
+@media screen and (max-width: 640px ) { 
+	.row{ margin:auto; }
+	.no-mobile { display:none !important; }
+	.no-desktop{ display:block !important; &.disable { display:none !important; }}
+	.mobile-only{ display:block; &.disable { display:none !important; }}
+	.desktop-only { display:none !important; }
+}
+
+.disable { display:none !important; }
+
+@each $size in $grid-sizes {
+	
+	$grid-name: nth($size, 1);
+	$grid-value: nth($size, 2);
+	$grid-color: nth($size, 3);
+	
+	@media screen and (min-width: #{$grid-value}px)  {
+		@for $i from 1 through $grid-columns {
+			@if($grid-spacing > 0) {
+    			.#{$grid-name}-#{$i} {
+					$a:  #{percentage((1 / $grid-columns)* $i)};
+					width: calc(#{$a} - #{$grid-spacing}px);
+					margin:auto #{$half-grid-spacing}px;				
+				}
+		    	.#{$grid-name}-push-#{$i}{ 
+					$b:  #{percentage((1 / $grid-columns)* $i)};
+					margin-left: calc(#{$b} + #{$half-grid-spacing}px);	 
+				}
+		    } @else {		    
+				.#{$grid-name}-#{$i} { width: percentage(1 / $grid-columns * $i); }
+				.#{$grid-name}-push-#{$i}{ margin-left: percentage(1 / $grid-columns * $i); }
+			}	
+			@if($grid-dev == true) {
+				.#{$grid-name}-#{$i} { border:1px solid $grid-color; }
+			}
+		}	
+	}	
+}
+
+@if($auto-imagesize == true) {
+	.row > div { position:relative; a,img { &,img { width:100%; max-width:100%; } } }
+}

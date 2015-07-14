@@ -1,4 +1,14 @@
 @import "color_default";
+// @import "../../bower_components/framed/src/_functions.scss";
+// @import "../../bower_components/framed/src/_color_default.scss";
+// @import "../../bower_components/framed/src/_mixins.scss";
+// @import "../../bower_components/framed/src/_settings.scss";
+// @import "../../bower_components/framed/src/_grid.scss";
+// @import "../../bower_components/framed/src/_forms.scss";
+// @import "../../bower_components/framed/src/_tables.scss";
+// @import "../../bower_components/framed/src/_modal.scss";
+// @import "../../bower_components/framed/src/_tabs.scss";
+/* @import "../../bower_components/framed/src/_accordion.scss"; */
 
 // $border-radius-size: 3;
 // $border-radius: #{$border-radius-size}px;
@@ -93,7 +103,7 @@ $font-weights: (
 
 // form settings
 
-// $popup-border: 0px;
+// $modal-border: 0px;
 
-// $popup-title-background: rgba(black,0.5);
-// $popup-title-color: $white;
+// $modal-title-background: rgba(black,0.5);
+// $modal-title-color: $white;
