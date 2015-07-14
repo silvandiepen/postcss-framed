@@ -1,32 +1,41 @@
 {
-  "name": "framed",
-  "version": "0.1.1",
-  "homepage": "https://silvandiepen.com",
-  "authors": [
-    "silvandiepen <me@silvandiepen.com>"
-  ],
-  "description": "Responsive grid",
-  "main": [
-    "css/style.css",
-    "js/framed.js"
-  ],
-    "keywords": [
-    "responsive",
-    "grid",
-    "frame",
-    "sass",
-    "scss"
-  ],
-  "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
-  "dependencies": {
-    "jquery": ">= 2.1.0",
-    "modernizr": ">= 2.7.2"
-  }
+	"name": "framed",
+	"version": "0.1.1",
+	"homepage": "https://silvandiepen.com",
+	"authors": [
+		"silvandiepen <me@silvandiepen.com>"
+	],
+	"description": "Responsive grid",
+	"main": [
+		"_framed.scss",
+		"src/_accordion.scss",
+		"src/_color_default.scss",
+		"src/_forms.scss",
+		"src/_functions.scss",
+		"src/_grid.scss",
+		"src/_mixins.scss",
+		"src/_modal.scss",
+		"src/_settings.scss",
+		"src/_tables.scss",
+		"src/_tabs.scss"
+	],
+	"keywords": [
+		"responsive",
+		"grid",
+		"frame",
+		"sass",
+		"scss"
+	],
+	"license": "MIT",
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	],
+	"dependencies": {
+		"jquery": ">= 2.1.0",
+		"modernizr": ">= 2.7.2"
+	}
 }
