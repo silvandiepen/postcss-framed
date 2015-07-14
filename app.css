@@ -342,7 +342,7 @@ table {
   display: none !important;
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 0px) {
   .small-1 {
     width: 8.33333%;
   }
@@ -439,7 +439,7 @@ table {
     margin-left: 100%;
   }
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 641px) {
   .medium-1 {
     width: 8.33333%;
   }
@@ -536,7 +536,7 @@ table {
     margin-left: 100%;
   }
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1025px) {
   .large-1 {
     width: 8.33333%;
   }
@@ -633,7 +633,7 @@ table {
     margin-left: 100%;
   }
 }
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: 1441px) {
   .xlarge-1 {
     width: 8.33333%;
   }
@@ -730,7 +730,7 @@ table {
     margin-left: 100%;
   }
 }
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: 1441px) {
   .xxlarge-1 {
     width: 8.33333%;
   }

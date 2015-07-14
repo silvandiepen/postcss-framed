@@ -63,7 +63,7 @@ $grid-xxlarge: 1921,9999 !default;
 $mobile-max: last($grid-small) !default;
 $desktop-min: first($grid-medium) !default;
 
-$grid-sizes: (small last($grid-small) yellow) (medium last($grid-medium) blue) (large last($grid-large) yellow) (xlarge last($grid-xlarge) red) (xxlarge last($grid-xlarge) red);
+$grid-sizes: (small first($grid-small) yellow) (medium first($grid-medium) blue) (large first($grid-large) yellow) (xlarge first($grid-xlarge) red) (xxlarge first($grid-xlarge) red);
 
 
 // MEDIA QUERIES
