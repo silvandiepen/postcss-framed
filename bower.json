@@ -17,6 +17,7 @@
 		"src/_modal.scss",
 		"src/_settings.scss",
 		"src/_tables.scss",
+		"src/_chart.scss",
 		"src/_tabs.scss"
 	],
 	"keywords": [
