@@ -408,7 +408,7 @@
 
 @mixin background($url,$size: contain,$position: center center, $repeat: no-repeat){
   background-image: url(#{$base-img-dir}/#{$url});
-  @include background-size($size);
+	background-size: $size;
   background-position: $position;
   background-repeat: $repeat;
 }
@@ -418,16 +418,13 @@
 // transition simplified
 
 @mixin fade($value: $transition){
-	@include transition($value);
+	transition: $value;
 }
 
 // Animation Mixin
 
 @mixin animate($animation, $duration: 1s, $repeat: infinite, $easing: ease-in-out) {
-	-webkit-animation: $animation $duration $repeat $easing;
-	   -moz-animation: $animation $duration $repeat $easing;
-	    -ms-animation: $animation $duration $repeat $easing;
-	        animation: $animation $duration $repeat $easing;
+   animation: $animation $duration $repeat $easing;
 }
 
 
@@ -475,11 +472,11 @@
 @mixin menu($width: 2rem, $height: .25rem, $gutter: .25rem, $color: $white, $round: $border-radius, $transition-duration: $transition) {
   $menu-height: $height !global;
   $menu-gutter: $gutter !global;
-  @include user-select(none); position: absolute; margin:#{$height + $gutter} auto; text-indent: -999em; text-align: left; top: 50%; left: 50%; margin-left: -#{$width/2}; margin-top: -#{$height/2};
+  user-select: none; position: absolute; margin:#{$height + $gutter} auto; text-indent: -999em; text-align: left; top: 50%; left: 50%; margin-left: -#{$width/2}; margin-top: -#{$height/2};
   @include parent { position: absolute; }
 
   &, &:before, &:after{ display: block; width: $width; height: $height; background-color: $color; @include fade($transition-duration); opacity: 1; 
-    @if $round != 0 { @include border-radius($round); }
+    @if $round != 0 { border-radius: $round; }
   }
   &:before, &:after{ position: absolute; content: ""; }
   &:before{ top: -($height + $gutter); }
@@ -489,8 +486,8 @@
 @mixin menu-close {
   &:before, &:after{ top: 0px; margin-top: -#{($menu-height/2) + ($menu-gutter + $menu-height)}; @content; }
   &{ background-color: transparent; }
-  &:before{ @include transform(translateY($menu-gutter + $menu-height) rotate(45deg)); }
-  &:after{ @include transform(translateY($menu-gutter + $menu-height) rotate(-45deg)); }
+  &:before{ transform: translateY($menu-gutter + $menu-height) rotate(45deg); }
+  &:after{ transform: translateY($menu-gutter + $menu-height) rotate(-45deg); }
 }
 @mixin menu-body{
 	&,&:before, &:after{ @content; }
@@ -506,9 +503,9 @@
 	@include parent{
 		input[type=checkbox] + label{ padding-left: $width + $margin; position: relative; cursor: pointer;
 			&:before{ content:""; display: block; position: absolute; left: 0px; top: 0px; width: $width; height: $height; background: $bg-body;
-			  @if $round != 0 { @include border-radius($round); }
+			  @if $round != 0 { border-radius: $round; }
 			}
-			&:after{ content:""; display: block; position: absolute; left: $spacing; top: $spacing; width: ($width - ($spacing*2)); height: ($width - ($spacing*2)); background: $bg-check; @include border-radius($round); opacity: 0; @include fade;
+			&:after{ content:""; display: block; position: absolute; left: $spacing; top: $spacing; width: ($width - ($spacing*2)); height: ($width - ($spacing*2)); background: $bg-check; border-radius: $round; opacity: 0; @include fade;
 			}
 		}
 		input[type=checkbox]:checked{
