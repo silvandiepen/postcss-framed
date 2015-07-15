@@ -1,0 +1,24 @@
+@import "../../bower_components/framed/framed.scss";
+@import "color_default";
+@import "settings";
+
+
+body, html{ width: 100%; height: 100%; margin: 0; padding: 0; }
+body{ font-family: $main-font-family; font-weight: $font-medium; line-height: 150%; color: $black; background: $white; }
+
+h1, h2{ font-family: $sub-font-family; }
+h1{ font-size: 3rem; }
+h2{ font-size: 2.5rem; }
+
+a{ font-weight: $font-bold; text-decoration: none; color: inherit;
+	&:hover{ text-decoration: underline; } }
+
+header{ }
+section{ }
+footer{ }
+
+// FOR SMALL
+@media #{$medium-only}{ }
+
+// FOR MEDIUM
+@media #{$small-only}{ }

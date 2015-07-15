@@ -1,0 +1,48 @@
+@mixin pie($size: 200,$style: opague, $color: blue, $border: 10, $max-parts: 24){
+	@if $style == 'tint' or $style == 'shade' or $style == 'hue' or $style == 'opague' {
+
+		&{ background: inherit; 
+			@for $i from 1 through $max-parts{
+				div:nth-child(#{$i}):before,
+				div:nth-child(#{$i}):after { 
+					@if $style == 'hue' { background: adjust-hue($color, percentage($i)); }
+					@else if $style == 'shade' { background: shade($color, percentage($i)); }
+					@else if $style == 'tint' { background: tint($color, percentage($i)); }
+					@else if $style == 'opague' { background: rgba(white, $i/10); }
+				}
+			}
+		}
+	}
+	
+	&{ position: relative; display: inline-block; background: $color; border-radius:50%; width: #{$size}px; height: #{$size}px;
+	  div,span{ display: block; position:absolute; width:#{$size*2}px; height:#{$size}px; overflow:hidden; left:#{$size/2}px; transform-origin:left center;
+			&:before,&:after{ position: absolute; width: #{$size/2}px; height: #{$size}px; left: -#{$size/2}px; border-radius: #{$size/2}px 0 0 #{$size/2}px; transform-origin: right center; }
+			&:before{ content:"";}
+		}	
+		@for $i from 0 through 360{
+			div[data-start="#{$i}"] { transform:rotate(#{$i}deg); }
+			div[data-value="#{$i}"]:before{ transform: rotate(#{$i}deg); }
+		}
+	}
+	$large-list: null;
+	@for $i from 181 through 360{
+		$large-list: append($large-list, unquote('div[data-value="#{$i}"],span[data-value="#{$i}"]'), comma);
+	}
+	#{$large-list}{
+		&{ 		
+			width: #{$size}px; height: #{$size}px; left: #{$size/4}px; left: 0px; transform-origin: center center; 
+			&:before{ left: 0px; }
+			&:after{ content:""; left: #{$size/2}px; border-radius: 0 #{$size/2}px #{$size/2}px 0; }
+		}
+	}
+}
+
+@mixin pie-piece($number: -1){
+	@if $number > 0 {
+		span:nth-child(#{$number}),div:nth-child(#{$number}){ &:before { @content; }}
+	} @else { &:before { @content; }}
+}
+
+@mixin pie-pieces{
+	span,div{ &:before { @content; }}
+}
