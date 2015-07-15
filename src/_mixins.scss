@@ -352,38 +352,41 @@
  
 	@return $string;
 }
+@mixin font-face( $name,  $font-files,  $eot: false, $weight: normal, $style: normal) {
+  $iefont: unquote("#{$eot}?#iefix");
+  @font-face {
+    font-family: quote($name);
+    @if $eot {
+      src: font-url($eot);
+      $font-files: font-url($iefont) unquote("format('eot')"), $font-files; 
+    }
+    src: $font-files;
+    @if $weight {
+      font-weight: $weight;
+    }
+    @if $style {
+      font-style: $style;
+    }
+  }
+}
 
-@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
-	$src: null;
- 
-	$extmods: (
-		eot: "?",
-		svg: "#" + str-replace($name, " ", "_")
-	);
- 
-	$formats: (
-		otf: "opentype",
-		ttf: "truetype"
-	);
- 
-	@each $ext in $exts {
-		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
-		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
-		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
-	}
- 
+@mixin font-include($name, $file, $weight: normal, $type: normal) {
+//	@include font-face("#{$name}", font-files("#{$file}.woff", "#{$file}.ttf", "#{$file}.svg", "#{$file}.otf"), "#{$file}.eot", $weight, $type);
+
 	@font-face {
-		font-family: quote($name);
-		font-style: $style;
+		font-family: unquote($name);
+		src:url("fonts/timmerdorp.eot");
+		src:url("#{$file}.eot?#iefix"),
+  	  url("#{$file}.woff"),
+			url("#{$file}.ttf"),
+			url("#{$file}.svg##{$name}");
 		font-weight: $weight;
-		src: $src;
+		font-style: $type;
 	}
-}
-@mixin font-include($name, $file, $weight, $type) {
-	@include font-face("#{$name}", font-files("#{$file}.woff", "#{$file}.ttf"), "#{$file}.eot", $weight, $type);
+		
 }
 
-@mixin font-list($name,$weights,$type,$font-weight){
+@mixin font-list($name,$weights,$type: normal,$font-weight: normal){
 	$italic: '';
 	@if $type == 'italic'{	
 		$italic: 'Italic';
