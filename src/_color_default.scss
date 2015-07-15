@@ -1,16 +1,82 @@
 $black: #303030 !default;
 $white: #ffffff !default;
 $red: #f51821 !default;
+$yellow: yellow !default;
+$pink: #ff9600 !default;
 $gray: #666666 !default;
+$midgray: #999999 !default;
 $darkgray: #404040 !default;
 $lightgray: #f8f8f8 !default;
 $blue: #12b1d9 !default;
-$orange: #ef8322 !default; 
+$orange: #ef8322 !default;
 $base: gray !default;
 
+// SOCIAL MEDIA COLORS
 
-$form-border-radius: 4px !default;
-$form-border-width: 2px !default;
-$form-border-color: gray !default;
-$form-inputbg-color: darkgray !default;
-$form-input-padding: 1rem !default; 
+	$facebook: #3b5998;
+	$twitter: #00aced;
+	$googleplus: #dd4b39;
+	$youtube: #bb0000;
+	$linkedin: #007bb6;
+	$instagram: #517fa4;
+	$pinterest: #cb2027;
+	$vine: #00bf8f;
+	$snapchat: #fffc00;
+	$quora: #a82400;
+	$flickr: #ff0084;
+	$tumblr: #32506d;
+	$vkontakte: #45668e;
+	$vimeo: #aad450;
+	$foursquare: #0072b1;
+	$dribbble: #ea4c89;
+	$soundcloud: #0066CC;
+	$git: #0f0d0e;
+	$skype: #12A5F4;
+
+
+
+	$basic-colors:
+		(roze: #EEB4D2,
+		purple: #8E3266,
+		red: #E41C37,
+		orange: #F9B218,
+		yellow: #FAE106,
+		turquoise: #5BC4BF,
+		blue: #1EADC9,
+		skyblue: #59C9EB,
+		darkblue: #15617F,
+		darkgreen: #4A7F3B,
+		green: #48B971,
+		darkbrown: #6D5038,
+		brown: #B68961,
+		pink: #ED1E7B,
+		black: #222222,
+		white: #ffffff,
+		gray: #888888);
+
+	$status-colors:
+		(pending: map-get($basic-colors, orange),
+		cancelled: map-get($basic-colors, red),
+		draft: map-get($basic-colors, blue),
+		done: map-get($basic-colors, green));
+
+	$social-colors:
+		(dribbble: #ea4c89,
+		facebook: #3b5998,
+		flickr: #ff0084,
+		foursquare: #0072b1,
+		git: #0f0d0e,
+		googleplus: #dd4b39,
+		twitter: #00aced,
+		linkedin: #007bb6,
+		instagram: #517fa4,
+		pinterest: #cb2027,
+		quora: #a82400,
+		skype: #12A5F4,
+		snapchat: #fffc00,
+		soundcloud: #0066CC,
+		tumblr: #32506d,
+		vimeo: #aad450,
+		vine: #00bf8f,
+		vkontakte: #45668e,
+		youtube: #bb0000);

@@ -88,6 +88,11 @@ $xxlarge-only: "screen and (min-width:#{first($grid-xxlarge)}px) and (max-width:
 $xxlarge-up: "screen and (min-width:#{first($grid-xxlarge)}px)" !default;
 $xxlarge-down: "screen and (max-width: #{last($grid-xxlarge)}px)" !default;
 
+$form-border-radius: 4px !default;
+$form-border-width: 2px !default;
+$form-border-color: gray !default;
+$form-inputbg-color: darkgray !default;
+$form-input-padding: 1rem !default; 
 
 // modal settings
 
