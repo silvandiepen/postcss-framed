@@ -1,15 +1,24 @@
-$black: #303030 !default;
-$white: #ffffff !default;
-$red: #f51821 !default;
-$yellow: yellow !default;
-$pink: #ff9600 !default;
 $gray: #666666 !default;
 $midgray: #999999 !default;
 $darkgray: #404040 !default;
 $lightgray: #f8f8f8 !default;
-$blue: #12b1d9 !default;
-$orange: #ef8322 !default;
-$base: gray !default;
+$roze: #EEB4D2 !default;
+$purple: #8E3266 !default;
+$red: #E41C37 !default;
+$orange: #F9B218 !default;
+$yellow: #FAE106 !default;
+$turquoise: #5BC4BF !default;
+$blue: #1EADC9 !default;
+$skyblue: #59C9EB !default;
+$darkblue: #15617F !default;
+$darkgreen: #4A7F3B !default;
+$green: #48B971 !default;
+$darkbrown: #6D5038 !default;
+$brown: #B68961 !default;
+$pink: #ED1E7B !default;
+$black: #222222 !default;
+$white: #ffffff !default;
+$gray: #888888 !default;
 
 // SOCIAL MEDIA COLORS
 
@@ -36,23 +45,26 @@ $base: gray !default;
 
 
 	$basic-colors:
-		(roze: #EEB4D2,
-		purple: #8E3266,
-		red: #E41C37,
-		orange: #F9B218,
-		yellow: #FAE106,
-		turquoise: #5BC4BF,
-		blue: #1EADC9,
-		skyblue: #59C9EB,
-		darkblue: #15617F,
-		darkgreen: #4A7F3B,
-		green: #48B971,
-		darkbrown: #6D5038,
-		brown: #B68961,
-		pink: #ED1E7B,
-		black: #222222,
-		white: #ffffff,
-		gray: #888888);
+		(roze: $roze,
+		purple: $purple,
+		red: $red,
+		orange: $orange,
+		yellow: $yellow,
+		turquoise: $turquoise,
+		blue: $blue,
+		skyblue: $skyblue,
+		darkblue: $darkblue,
+		darkgreen: $darkgreen,
+		green: $green,
+		darkbrown: $darkbrown,
+		brown: $brown,
+		pink: $pink,
+		black: $black,
+		white: $white,
+		gray: $gray,
+		lightgray: $lightgray,
+		midgray: $midgray,
+		darkgray: $darkgray);
 
 	$status-colors:
 		(pending: map-get($basic-colors, orange),
