@@ -68,9 +68,9 @@ $grid-sizes: (small first($grid-small) yellow) (medium first($grid-medium) blue)
 
 // MEDIA QUERIES
 
-$small-only: "screen and (max-width: #{last($grid-medium)}px)" !default;
-$medium-up: "screen and (min-width:#{first($grid-small)}px)" !default;
-$medium-down: "screen and (max-width: #{last($grid-small)}px)" !default;
+$small-only: "screen and (max-width: #(last($grid-small)}px)" !default;
+$small-up: "screen and (min-width:#{first($grid-small)}px)" !default;
+$small-down: "screen and (max-width: #{last($grid-small)}px)" !default;
 
 $medium-only: "screen and (min-width:#{first($grid-medium)}px) and (max-width: #{last($grid-medium)}px)" !default;
 $medium-up: "screen and (min-width:#{first($grid-medium)}px)" !default;
