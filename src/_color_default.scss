@@ -83,7 +83,6 @@ $gray: #888888 !default;
 		linkedin: #007bb6,
 		instagram: #517fa4,
 		pinterest: #cb2027,
-		quora: #a82400,
 		skype: #12A5F4,
 		snapchat: #fffc00,
 		soundcloud: #0066CC,
@@ -92,3 +91,24 @@ $gray: #888888 !default;
 		vine: #00bf8f,
 		vkontakte: #45668e,
 		youtube: #bb0000);
+		
+		$social: (
+				("dribbble",social(dribble),'n'),
+				("facebook",social(facebook),'7'),
+				("flickr",social(flickr),'W'),
+				("foursquare",social(foursquare),'u'),
+				("git",social(git),'s'),
+				("googleplus",social(googleplus),'r'),
+				("twitter",social(twitter),"'"),
+				("linkedin",social(linkedin),'*'),
+				("instagram",social(instagram),'9'),
+				("pinterest",social(pinterest),'K'),
+				("skype",social(skype),'O'),
+				("snapchat",social(snapchat),'Z'),
+				("soundcloud",social(soundcloud),'$'),
+				("tumblr",social(tumblr),'T'),
+				("vimeo",social(vimeo),'R'),
+				("vine",social(vine),'/'),
+				("vkontakte",social(vkontakte),'&'),
+				("youtube",social(youtube),'"')
+		);
