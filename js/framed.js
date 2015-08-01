@@ -91,7 +91,7 @@ function framed_Popup(){
 		});
 	});
 	
-);	
+}
 
 
 // TABS 
@@ -210,7 +210,7 @@ function framed_Accordion()
 			}
 		});		
 	});
-)
+}
 
 
 
