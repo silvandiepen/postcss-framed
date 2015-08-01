@@ -162,7 +162,7 @@ function framed_SubmitStyle(){
 
 
 
-function framed_Accordion()
+function framed_Accordion(){
 
 	
 	$( document ).find( ".accordion" ).each(function( index, value ) {
@@ -226,8 +226,8 @@ function framed_Accordion()
 	// return height
 		return h;
 	};
+	
 	function framed_Ratio() {
-		
 		
 	// get ratio elements
 		$( document ).find( '[class*="ratio"]' ).each(function() {
