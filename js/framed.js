@@ -148,7 +148,7 @@ function framed_Tabs(){
 
 // SUBMIT STYLER
 
-function framed_SubmitStyle()
+function framed_SubmitStyle(){
 
 	$( document ).find( "input.submit" ).each(function( index, value ) {
 		
