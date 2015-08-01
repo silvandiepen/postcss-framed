@@ -242,6 +242,8 @@ function framed_Accordion(){
 		// for each classname
 			$.each( classArray, function(i, value) {
 			
+				console.log(classArray);
+		
 			// split values
 				className = value.split("-");
 				
@@ -260,8 +262,6 @@ function framed_Accordion(){
 					
 			// set height	
 				$(sizeElement).css("height", height +"px");	
-				
-				console.log('done ratio on' + sizeElement);
 			}
 			
 		});
