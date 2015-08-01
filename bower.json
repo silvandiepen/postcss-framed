@@ -18,7 +18,8 @@
 		"src/_settings.scss",
 		"src/_tables.scss",
 		"src/_chart.scss",
-		"src/_tabs.scss"
+		"src/_tabs.scss",
+		"js/framed.js"
 	],
 	"keywords": [
 		"responsive",
