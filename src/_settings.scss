@@ -1,6 +1,7 @@
 @import "color_default";
 
-$transition: .3s !default;
+$transition-time: .3;
+$transition: #{$transition-time}s !default;
 $border-radius-size: 3 !default;
 $border-radius: #{$border-radius-size}px !default;
 
