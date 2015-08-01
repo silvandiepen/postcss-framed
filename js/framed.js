@@ -8,7 +8,7 @@ $(window).ready(function(){
 	framed_Tabs();
 });
 $(window).resize(function(){
-	framed_Ratio()
+	framed_Ratio();
 });
 
 
@@ -229,6 +229,8 @@ function framed_Accordion(){
 	
 	function framed_Ratio() {
 		
+		console.log('do ratio');
+		
 	// get ratio elements
 		$( document ).find( '[class*="ratio"]' ).each(function() {
 	
@@ -258,6 +260,8 @@ function framed_Accordion(){
 					
 			// set height	
 				$(sizeElement).css("height", height +"px");	
+				
+				console.log('done ratio on' + sizeElement);
 			}
 			
 		});
