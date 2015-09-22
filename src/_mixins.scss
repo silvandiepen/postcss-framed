@@ -295,17 +295,17 @@
 }
 
 @mixin extend($name) {
-  @extend %#{$name}; 
+  @extend %#{$name};
 }
 
 @mixin size($size,$lineheight: false) {
   width: nth($size,1);
   @if length($size) > 1{
 	  height: nth($size,2);
-  } 
+  }
   @else {
-	  height: nth($size,1);	  
-  }  
+	  height: nth($size,1);
+  }
   @if $lineheight == true{
 	  height: nth($size,1);
   }
@@ -342,14 +342,14 @@
 // =============================================================================
 // String Replace
 // =============================================================================
- 
+
 @function str-replace($string, $search, $replace: "") {
 	$index: str-index($string, $search);
- 
+
 	@if $index {
 		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
 	}
- 
+
 	@return $string;
 }
 @mixin font-face( $name,  $font-files,  $eot: false, $weight: normal, $style: normal) {
@@ -358,7 +358,7 @@
     font-family: quote($name);
     @if $eot {
       src: font-url($eot);
-      $font-files: font-url($iefont) unquote("format('eot')"), $font-files; 
+      $font-files: font-url($iefont) unquote("format('eot')"), $font-files;
     }
     src: $font-files;
     @if $weight {
@@ -372,28 +372,26 @@
 
 @mixin font-include($name, $file, $weight: normal, $type: normal) {
 //	@include font-face("#{$name}", font-files("#{$file}.woff", "#{$file}.ttf", "#{$file}.svg", "#{$file}.otf"), "#{$file}.eot", $weight, $type);
-
 	@font-face {
 		font-family: unquote($name);
-		src:url("fonts/timmerdorp.eot");
-		src:url("#{$file}.eot?#iefix"),
-  	  url("#{$file}.woff"),
-			url("#{$file}.ttf"),
-			url("#{$file}.svg##{$name}");
-		font-weight: $weight;
+		src:url("#{$base-fontpath}/#{$file}.eot?#iefix") format('embedded-opentype'),/* IE6-IE8 */
+  	  url("#{$base-fontpath}/#{$file}.woff") format('woff'),/* Pretty Modern Browsers */
+			url("#{$base-fontpath}/#{$file}.ttf") format('truetype'),/* Safari, Android, iOS */
+			url("#{$base-fontpath}/#{$file}.svg##{$name}") format('svg'); /* Legacy iOS */
+		font-weight: unquote($weight);
 		font-style: $type;
 	}
-		
 }
 
-@mixin font-list($name,$weights,$type: normal,$font-weight: normal){
+@mixin font-list($title,$name,$weights,$type: normal){
 	$italic: '';
-	@if $type == 'italic'{	
+	@if $type == 'italic'{
 		$italic: 'Italic';
 	}
-	@for $i from 1 through length($weights) {	
-		$weight: unquote("#{nth($weights,$i)}");
-		@include font-include($name,#{$name}-#{nth($weights,$i)}#{$italic},map-get($font-weight,#{to-lower-case($weight)}),$type);
+	@for $i from 1 through length($weights) {
+//		$weight: unquote("#{nth($weights,$i)}");
+    $weight: nth($weights,$i);
+		@include font-include($title,#{$name}#{nth($weight,1)}#{$italic},nth($weight,2),$type);
 	}
 }
 
@@ -416,7 +414,15 @@
   background-repeat: $repeat;
 }
 
-
+@mixin radial-gradient($from, $to) {
+    background: -moz-radial-gradient(center, circle cover, $from 0%, $to 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, $from), color-stop(100%, $to));
+    background: -webkit-radial-gradient(center, circle cover, $from 0%, $to 100%);
+    background: -o-radial-gradient(center, circle cover, $from 0%, $to 100%);
+    background: -ms-radial-gradient(center, circle cover, $from 0%, $to 100%);
+    background: radial-gradient(center, circle cover, $from 0%, $to 100%);
+    background-color: $from;
+}
 
 // transition simplified
 
@@ -470,15 +476,13 @@
   }
 }
 
-
-
 @mixin menu($width: 2rem, $height: .25rem, $gutter: .25rem, $color: $white, $round: $border-radius, $transition-duration: $transition) {
   $menu-height: $height !global;
   $menu-gutter: $gutter !global;
   user-select: none; position: absolute; margin:#{$height + $gutter} auto; text-indent: -999em; text-align: left; top: 50%; left: 50%; margin-left: -#{$width/2}; margin-top: -#{$height/2};
   @include parent { position: absolute; }
 
-  &, &:before, &:after{ display: block; width: $width; height: $height; background-color: $color; @include fade($transition-duration); opacity: 1; 
+  &, &:before, &:after{ display: block; width: $width; height: $height; background-color: $color; @include fade($transition-duration); opacity: 1;
     @if $round != 0 { border-radius: $round; }
   }
   &:before, &:after{ position: absolute; content: ""; }
@@ -545,4 +549,20 @@
 		input:checked + label{ @content; }
 	}
 }
+@mixin createElements($amount){
+  @for $i from 1 through $amount{
+    #{elementCount($i)}{
+      @content;
+    }
+  }
+}
 
+
+@function elementCount($end){
+  $elements: ();
+  @for $i from 1 through $end{
+      $element: '&:nth-child(#{$i}):nth-last-child(#{(($end + 1) - $i)}),';
+      $elements: prepend($element,$elements);
+  }
+  @return $elements;
+}
