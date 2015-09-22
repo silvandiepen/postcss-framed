@@ -556,8 +556,6 @@
     }
   }
 }
-
-
 @function elementCount($end){
   $elements: ();
   @for $i from 1 through $end{
