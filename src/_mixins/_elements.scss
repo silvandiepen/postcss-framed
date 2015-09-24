@@ -1,0 +1,144 @@
+@mixin selection {
+    ::-moz-selection { @content; }
+    ::selection { @content; }
+}
+
+@mixin border-radius($radius: $base-radius) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin extend($name) {
+  @extend %#{$name};
+}
+
+@mixin size($size,$lineheight: false) {
+  width: nth($size,1);
+  @if length($size) > 1{
+	  height: nth($size,2);
+  }
+  @else {
+	  height: nth($size,1);
+  }
+  @if $lineheight == true{
+	  height: nth($size,1);
+  }
+}
+@mixin position($list){
+	top: nth($list,1);
+	right: nth($list,2);
+	bottom: nth($list,3);
+	left: nth($list,4);
+}
+
+@mixin parent {
+  @each $selector in & {
+
+    $l: length($selector);
+
+    @if ($l == 1) {
+      @error "Used parent mixin on a top-level selector";
+    } @else {
+
+      $parent: nth($selector,1);
+      @for $i from 2 to $l {
+        $parent: append($parent,nth($selector,$i));
+      }
+
+      @at-root #{$parent} {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin menu($width: 2rem, $height: .25rem, $gutter: .25rem, $color: $white, $round: $border-radius, $transition-duration: $transition) {
+  $menu-height: $height !global;
+  $menu-gutter: $gutter !global;
+  user-select: none; position: absolute; margin:#{$height + $gutter} auto; text-indent: -999em; text-align: left; top: 50%; left: 50%; margin-left: -#{$width/2}; margin-top: -#{$height/2};
+  @include parent { position: absolute; }
+
+  &, &:before, &:after{ display: block; width: $width; height: $height; background-color: $color; @include fade($transition-duration); opacity: 1;
+    @if $round != 0 { border-radius: $round; }
+  }
+  &:before, &:after{ position: absolute; content: ""; }
+  &:before{ top: -($height + $gutter); }
+  &:after{ top: $height + $gutter; }
+}
+
+@mixin menu-close {
+  &:before, &:after{ top: 0px; margin-top: -#{($menu-height/2) + ($menu-gutter + $menu-height)}; @content; }
+  &{ background-color: transparent; }
+  &:before{ transform: translateY($menu-gutter + $menu-height) rotate(45deg); }
+  &:after{ transform: translateY($menu-gutter + $menu-height) rotate(-45deg); }
+}
+@mixin menu-body{
+	&,&:before, &:after{ @content; }
+}
+
+@mixin menu-close-body{
+	&:before, &:after{ @content; }
+}
+
+
+@mixin input-checkbox($width: 1rem, $height: 1rem, $margin: 0, $spacing: .2rem, $bg-body: $white, $bg-check: $black, $round: 50%){
+	&{ display: none; }
+	@include parent{
+		input[type=checkbox] + label{ padding-left: $width + $margin; position: relative; cursor: pointer;
+			&:before{ content:""; display: block; position: absolute; left: 0px; top: 0px; width: $width; height: $height; background: $bg-body;
+			  @if $round != 0 { border-radius: $round; }
+			}
+			&:after{ content:""; display: block; position: absolute; left: $spacing; top: $spacing; width: ($width - ($spacing*2)); height: ($width - ($spacing*2)); background: $bg-check; border-radius: $round; opacity: 0; @include fade;
+			}
+		}
+		input[type=checkbox]:checked{
+			& + label:after{ opacity: 1; @include fade; }
+		}
+	}
+}
+@mixin input-body{
+	@include parent{
+		input + label{
+			&:before{ @content; }
+		}
+	}
+}
+@mixin input-label{
+	@include parent{
+		input + label{ @content; }
+	}
+}
+@mixin input-check{
+	@include parent{
+		input:checked + label:after{ @content; }
+	}
+}
+@mixin input-body-checked{
+	@include parent{
+		input:checked + label{
+			&:before{ @content; }
+		}
+	}
+}
+@mixin input-label-checked{
+	@include parent{
+		input:checked + label{ @content; }
+	}
+}
+@mixin createElements($amount){
+  @for $i from 1 through $amount{
+    #{elementCount($i)}{
+      @content;
+    }
+  }
+}
+@function elementCount($end){
+  $elements: ();
+  @for $i from 1 through $end{
+      $element: '&:nth-child(#{$i}):nth-last-child(#{(($end + 1) - $i)}),';
+      $elements: prepend($element,$elements);
+  }
+  @return $elements;
+}

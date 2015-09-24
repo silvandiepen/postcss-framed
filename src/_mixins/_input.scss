@@ -1,0 +1,44 @@
+@mixin input($type: 'checkbox', $width: 1rem, $height: 1rem, $margin: 0, $spacing: .2rem, $bg-body: $white, $bg-check: $black, $round: 50%){
+	&{ display: none; }
+	@include parent{
+		input[type=#{$type}] + label{ padding-left: $width + $margin; position: relative; cursor: pointer;
+			&:before{ content:""; display: block; position: absolute; left: 0px; top: 0px; width: $width; height: $height; background: $bg-body;
+			  @if $round != 0 { @extend %round; }
+			}
+			&:after{ content:""; display: block; position: absolute; left: $spacing; top: $spacing; width: ($width - ($spacing*2)); height: ($width - ($spacing*2)); background: $bg-check; border-radius: $round; opacity: 0; @include fade;
+			}
+		}
+		input[type=#{$type}]:checked{
+			& + label:after{ opacity: 1; @include fade; }
+		}
+	}
+}
+@mixin input-body($type){
+	@include parent{
+		input[type=#{$type}] + label{
+			&:before{ @content; }
+		}
+	}
+}
+@mixin input-label($type){
+	@include parent{
+		input[type=#{$type}] + label{ @content; }
+	}
+}
+@mixin input-check($type){
+	@include parent{
+		input[type=#{$type}]:checked + label:after{ @content; }
+	}
+}
+@mixin input-body-checked($type){
+	@include parent{
+		input[type=#{$type}]:checked + label{
+			&:before{ @content; }
+		}
+	}
+}
+@mixin input-label-checked($type){
+	@include parent{
+		input[type=#{$type}]:checked + label{ @content; }
+	}
+}
