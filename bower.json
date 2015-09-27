@@ -1,14 +1,15 @@
 {
 	"name": "framed",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"homepage": "https://silvandiepen.com",
 	"authors": [
 		"silvandiepen <me@silvandiepen.com>"
 	],
 	"description": "Responsive grid",
 	"main": [
-		"_framed.scss",
-		"src/_accordion.scss",
+		"_framed.scss"
+/*
+		,"src/_accordion.scss",
 		"src/_chart.scss",
 		"src/_color_default.scss",
 		"src/_forms.scss",
@@ -31,6 +32,7 @@
 		"src/_mixins/_menu.scss",
 		"src/_mixins/_screen.scss",
 		"js/framed.js"
+*/
 	],
 	"keywords": [
 		"responsive",
