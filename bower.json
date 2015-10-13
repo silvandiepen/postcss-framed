@@ -29,25 +29,3 @@
 		"modernizr": ">= 2.7.2"
 	}
 }
-"_accordion.scss",
-"_chart.scss",
-"_color_default.scss",
-"_forms.scss",
-"_functions.scss",
-"_grid.scss",
-"_mixins.scss",
-"_modal.scss",
-"_settings.scss",
-"_tables.scss",
-"_tabs.scss",
-"_typography.scss",
-"_mixins/_animation.scss",
-"_mixins/_background.scss",
-"_mixins/_calc.scss",
-"_mixins/_elements.scss",
-"_mixins/_essential.scss",
-"_mixins/_flexbox.scss",
-"_mixins/_font.scss",
-"_mixins/_input.scss",
-"_mixins/_menu.scss",
-"_mixins/_screen.scss"
