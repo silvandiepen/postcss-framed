@@ -8,27 +8,7 @@
 	"description": "Responsive grid",
 	"main": [
 		"_framed.scss",
-		"src/_chart.scss",
-		"src/_color_default.scss",
-		"src/_forms.scss",
-		"src/_functions.scss",
-		"src/_grid.scss",
-		"src/_mixins.scss",
-		"src/_modal.scss",
-		"src/_settings.scss",
-		"src/_tables.scss",
-		"src/_tabs.scss",
-		"src/_typography.scss",
-		"src/_mixins/_animation.scss",
-		"src/_mixins/_background.scss",
-		"src/_mixins/_calc.scss",
-		"src/_mixins/_elements.scss",
-		"src/_mixins/_essential.scss",
-		"src/_mixins/_flexbox.scss",
-		"src/_mixins/_font.scss",
-		"src/_mixins/_input.scss",
-		"src/_mixins/_menu.scss",
-		"src/_mixins/_screen.scss"
+		"framed.js"
 	],
 	"keywords": [
 		"responsive",
