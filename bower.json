@@ -8,7 +8,7 @@
 	"description": "Responsive grid",
 	"main": [
 		"_framed.scss",
-		"framed.js"
+		"js/framed.js"
 	],
 	"keywords": [
 		"responsive",
