@@ -1,31 +1,26 @@
 {
-	"name": "framed",
-	"version": "0.1.3",
-	"homepage": "https://silvandiepen.com",
-	"authors": [
-		"silvandiepen <me@silvandiepen.com>"
-	],
-	"description": "Responsive grid",
-	"main": [
-		"_framed.scss"
-	],
-	"keywords": [
-		"responsive",
-		"grid",
-		"frame",
-		"sass",
-		"scss"
-	],
-	"license": "MIT",
-	"ignore": [
-		"**/.*",
-		"node_modules",
-		"bower_components",
-		"test",
-		"tests"
-	],
-	"dependencies": {
-		"jquery": ">= 2.1.0",
-		"modernizr": ">= 2.7.2"
-	}
+  "name": "postcss-framed",
+  "main": "index.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/silvandiepen/postcss-framed",
+  "authors": [
+    "silvandiepen <me@silvandiepen.com>"
+  ],
+  "description": "PostCSS version of Framed",
+  "moduleType": [],
+  "keywords": [
+    "framed",
+    "grid",
+    "css",
+    "framework"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/vendor/bower",
+    "test",
+    "tests"
+  ]
 }
